@@ -1,30 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { AppComponent } from './app.component';
-import { PanelComponent } from './panel/panel.component';
-import { DemoMaterialModule } from './material';
-import { MatFormFieldModule, MatExpansionModule } from '@angular/material';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule, DatePipe } from '@angular/common';
-import { FormsComponent } from './forms/forms.component';
-import { ValidformsComponent } from './validforms/validforms.component';
-import { NgxPasswordToggleModule } from 'ngx-password-toggle';
-import { DatepickerComponent } from './datepicker/datepicker.component';
-import { StudentformComponent } from './studentform/studentform.component';
-// import { StepperComponent } from './stepper/stepper.component';
-// import {MatStepperModule} from '@angular/material/stepper';
 
+
+import { AppComponent } from './app.component';
+import { DemoMaterialModule } from './material';
+import { MatFormFieldModule, MatDialogModule, MAT_DIALOG_DATA, MatDialogRef, MatIconModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditComponent } from './edit/edit.component';
+import { CreateComponent } from './create/create.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PanelComponent,
-    FormsComponent,
-    ValidformsComponent,
-    DatepickerComponent,
-    StudentformComponent,
-    // StepperComponent,
+    EditComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,12 +24,13 @@ import { StudentformComponent } from './studentform/studentform.component';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule,
-    MatExpansionModule,
-    NgxPasswordToggleModule,
-    // MatStepperModule
+    HttpClientModule,
+    MatDialogModule,
+    MatIconModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} }],
+  bootstrap: [AppComponent],
+  entryComponents:[EditComponent,CreateComponent]
 })
 export class AppModule { }
