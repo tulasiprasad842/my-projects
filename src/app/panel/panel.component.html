@@ -1,0 +1,91 @@
+<mat-accordion class="container-header-align">
+  <mat-expansion-panel [expanded]="step===0" (opened)="setstep(0)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>personal data</mat-panel-title>
+      <mat-panel-description>enter your details</mat-panel-description>
+      <mat-icon>account_circle</mat-icon>
+     </mat-expansion-panel-header>
+  <form [formGroup]="expandForm">
+     <mat-form-field>
+      <input matInput placeholder="firstName" formControlName="firstName">
+     </mat-form-field><br>
+     <mat-form-field>
+      <input matInput placeholder="lastName" formControlName="lastName">
+     </mat-form-field><br>
+     <mat-form-field>
+       <input matInput type="number" min="1" placeholder="Age" formControlName="Age">
+     </mat-form-field><br>
+     <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date_of_Birth" formControlName="Date_of_Birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-action-row>
+        <button mat-button color="primary"(click)="nextStep()">Next</button>
+      </mat-action-row>
+    </form>
+   </mat-expansion-panel>
+  
+
+   <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+     <mat-panel-title>family details</mat-panel-title>
+     <mat-panel-description>Enter Family Details</mat-panel-description>
+     <mat-icon>info</mat-icon>
+    </mat-expansion-panel-header>
+
+    <form [formGroup]="expandForm">
+    <mat-form-field>
+      <input matInput placeholder="fatherName" formControlName="fatherName">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="motherName" formControlName="motherName">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="streetName" formControlName="streetName">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="city" formControlName="city">
+    </mat-form-field><br>
+    <mat-form-field>
+      <input matInput placeholder="State" formControlName="State">
+    </mat-form-field>
+    <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary"(click)="nextStep()">Next</button>
+    </mat-action-row>
+  </form>
+     </mat-expansion-panel>
+    
+
+   <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+      <mat-expansion-panel-header>
+       <mat-panel-title>contact details</mat-panel-title>
+       <mat-panel-description>Enter Contact Details</mat-panel-description>
+       <mat-icon>email</mat-icon>
+      </mat-expansion-panel-header>
+
+   <form [formGroup]="expandForm">
+       <mat-form-field>
+         <input matInput placeholder="mobileNo" formControlName="mobileNo">
+       </mat-form-field><br>
+       <mat-form-field>
+         <input matInput placeholder="emailId" formControlName="emailId">
+       </mat-form-field><br>
+       <mat-form-field>
+         <input matInput placeholder="alternate_mobileNo" formControlName="alternate_mobileNo">
+       </mat-form-field><br>
+       <mat-form-field>
+         <input matInput placeholder="alternate_emailId" formControlName="alternate_emailId">
+       </mat-form-field>
+
+       <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">End</button>
+       </mat-action-row>
+  </form>
+     </mat-expansion-panel>
+    
+</mat-accordion>
+
+

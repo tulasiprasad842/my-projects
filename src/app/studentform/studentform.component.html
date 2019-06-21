@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>STUDENT FORM</h1>
+
+<mat-slide-toggle>Notifications</mat-slide-toggle><br>
+
+<mat-form-field>
+   <input matInput placeholder="First Name"[(ngModel)]="model.firstname" #firstname="ngModel">
+</mat-form-field><br>
+
+<mat-form-field>
+  <input matInput placeholder="Last Name" [(ngModel)]="model.lastName">
+</mat-form-field><br>
+
+<mat-form-field>
+  <input matInput placeholder="EmailId" [(ngModel)]="model.EmailId">
+</mat-form-field><br>
+
+<mat-form-field>
+  <input matInput placeholder="Mobile No"[(ngModel)]="model.mobileno" #mobileno="ngModel">
+</mat-form-field><br>
+
+<label>Gender </label>
+<mat-radio-group [(ngModel)]="model.radio">
+    <mat-radio-button value="Male">Male</mat-radio-button>
+    <mat-radio-button value="female">Female</mat-radio-button>
+</mat-radio-group>
+<br>
+
+<mat-form-field>
+   <mat-select placeholder="select State" [(ngModel)]="model.select">
+     <mat-option value="ap">AndhraPradesh</mat-option>
+     <mat-option value="ts">Telangana</mat-option>
+    <mat-option value="karnataka">karnataka</mat-option>
+    <mat-option value="Maharastra">Maharastra</mat-option>
+    <mat-option value="Bihar">Bihar</mat-option>
+    <mat-option value="MadhyaPradesh">MadhyaPradesh</mat-option> 
+  </mat-select>
+</mat-form-field>
+<br>
+
+<button mat-raised-button (click)="clickme()">submit</button>
+</div>
+

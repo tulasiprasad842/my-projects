@@ -1,0 +1,17 @@
+<form [formGroup]="dateForm">
+  <mat-form-field>
+    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="mypicker" placeholder="startDate"
+      formControlName="fromDate">
+    <mat-datepicker-toggle matSuffix [for]="mypicker"></mat-datepicker-toggle>
+    <mat-datepicker #mypicker></mat-datepicker>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <input matInput [min]="dateForm.value.fromDate" [max]="maxDate" [matDatepicker]="picker" placeholder="endDate"
+      formControlName="toDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</form>
+

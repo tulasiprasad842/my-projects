@@ -1,0 +1,23 @@
+<mat-step [stepControl]="firstFormGroup">
+  <form [formGroup]="firstFormGroup">
+<ng-template MatStepLabel>Fill Out Your Personal Details</ng-template>
+<mat-form-field>
+    <input matInput placeholder="firstName" formControlName="firstName">
+   </mat-form-field><br>
+   <mat-form-field>
+    <input matInput placeholder="lastName" formControlName="lastName">
+   </mat-form-field><br>
+   <mat-form-field>
+     <input matInput type="number" min="1" placeholder="Age" formControlName="Age">
+   </mat-form-field><br>
+   <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Date_of_Birth" formControlName="Date_of_Birth">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button [disabled]="!firstFormGroup.valid" matStepperNextButton>Next</button>
+    </div>
+  </form>
+</mat-step>
+
